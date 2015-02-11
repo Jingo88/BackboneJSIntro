@@ -8,16 +8,18 @@ var articles = new ArticlesCollection();
 
 console.log(articles);
 
-// var article1 = new Article({
-// 	headline: 'NYC is Murder Free for 7 Whole Days',
-//        content: 'Due to Winter Storm Mike Ditka, nobody was in the mood to kill another person because it was inconvenient',
-//        photo_url: "http://ia.media-imdb.com/images/M/MV5BMjIzOTA0OTQyN15BMl5BanBnXkFtZTcwMjE1OTIwMw@@._V1_SY317_CR5,0,214,317_AL_.jpg",
-//        author_id: 1
-// });
+var article1 = new Article({
+	headline: 'NYC is Murder Free for 7 Whole Days',
+       content: 'Due to Winter Storm Mike Ditka, nobody was in the mood to kill another person because it was inconvenient',
+       photo_url: "http://ia.media-imdb.com/images/M/MV5BMjIzOTA0OTQyN15BMl5BanBnXkFtZTcwMjE1OTIwMw@@._V1_SY317_CR5,0,214,317_AL_.jpg",
+       author_id: 1
+});
 
+console.log(article1);
 
+article1.set({content: "We are really nice people, I swear! "});
 
-
+console.log(article1.attributes.content);
 
 
 
