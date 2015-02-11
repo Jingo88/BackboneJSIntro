@@ -16,4 +16,9 @@ pet1.set("type", "hamster");
 
 If you open the index.html and type pet1 into the console it will show you a bunch of weird items. The name and the type fall under attributes. You can view these in cleaner fashion by typing "pet1.attributes"
 
+The default sync handler maps CRUD to REST like so:
 
+* create → POST   /collection
+* read → GET   /collection[/id]
+* update → PUT   /collection/id
+* delete → DELETE   /collection/id

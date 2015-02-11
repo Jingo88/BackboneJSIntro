@@ -17,7 +17,7 @@ var article1 = new Article({
 
 console.log(article1);
 
-article1.set({content: "We are really nice people, I swear! "});
+article1.set({content: "We are really nice people, I swear!"});
 
 console.log(article1.attributes.content);
 
