@@ -1,6 +1,14 @@
 class ArticlesController < ApplicationController
+
+  skip_before_action :verify_authenticity_token
+
+
   def index
     @articles = Article.all
+    respond_to do |format|
+      format.html { render :index };
+      format.json { render json: @articles }
+    end
   end
 
   def new

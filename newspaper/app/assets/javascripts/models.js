@@ -21,18 +21,18 @@ var Article = Backbone.Model.extend({
        });
    },
 
-   validate: function(attributes){
+   // validate: function(attributes){
 
-     if (attributes.author === undefined){
-         return "Authors, unlike pants, are optional";
-     } if (attributes.content === undefined){
-         return "Content, unlike pants, is not optional.";
-     } if (attributes.headline === undefined){
-         return "Headlines, unlike pants, are not optional.";
-     } if (http(attributes.photo_url) != "http://") {
-       return ("Your image url is incorrect, idiot.");
-     }
-   }
+   //   if (attributes.author === undefined){
+   //       return "Authors, unlike pants, are optional";
+   //   } if (attributes.content === undefined){
+   //       return "Content, unlike pants, is not optional.";
+   //   } if (attributes.headline === undefined){
+   //       return "Headlines, unlike pants, are not optional.";
+   //   } if (http(attributes.photo_url) != "http://") {
+   //     return ("Your image url is incorrect, idiot.");
+   //   }
+   // }
 
 });
 

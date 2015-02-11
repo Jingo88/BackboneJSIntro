@@ -22,3 +22,22 @@ The default sync handler maps CRUD to REST like so:
 * read → GET   /collection[/id]
 * update → PUT   /collection/id
 * delete → DELETE   /collection/id
+
+
+###Things to understand for populating views and CRUD
+
+* in your html you can set a script tag to "type = "text/template""
+* One definite perk is you do not have to constantly call document.createElement/getElement, and the like
+* el in your Backbone Extend targets an element
+* initialize - 
+* 'sync' - an event that gets triggered by collections. Anytime we do anything that connects to the api the syn will trigger
+* render - you know what this does
+* this.listenTo
+* this.collection
+* el.append(new Variable(this will be a single model)({model: target model name}.render().el);
+* PetsView vs PetView - they are two different variables. 
+* In the CreatePetView, the sync event from the PetsView will occur and it will re-render the whole thing
+
+```
+more code here
+```

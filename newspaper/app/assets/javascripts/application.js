@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Underscore.js
+//= require Backbone.js
 //= require models.js
 //= require collections.js
 //= require turbolinks

@@ -1,12 +1,14 @@
 var ArticlesCollection = Backbone.Collection.extend({
 	
 	model: Article,
-	url: 'http://localhost:3000/articles/'
+	url: 'http://localhost:3000/articles'
 });
 
 var articles = new ArticlesCollection();
 
 console.log(articles);
+
+
 
 var article1 = new Article({
 	headline: 'NYC is Murder Free for 7 Whole Days',
@@ -20,6 +22,29 @@ console.log(article1);
 article1.set({content: "We are really nice people, I swear!"});
 
 console.log(article1.attributes.content);
+
+
+
+
+var article2 = new Article({
+	headline: "It's Britney Bitch",
+	content: 'Spears is back after months of rehab to release her new single "Snow Flame." It is based off of the 1980s DC villian who gets his superpowers from cocaine',
+	photo_url: "http://img2.timeinc.net/people/i/2014/news/140922/britney-spears-768.jpg",
+	author_id: 2
+	});
+
+console.log(article2.attributes.headline);
+
+//create sees that it does not have an id, and makes an id for Johnny 5
+//if there is no id assigned to it, it sends out a POST request to create the new id
+articles.create(article2, {
+  success: function(response) {
+  	article2.set('id', response.toJSON().id);
+    article2.set({headline: 'Musical Mafia'});
+    article2.save();
+  }
+});
+
 
 
 
