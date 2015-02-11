@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+  </head>
+  <body>
+    <script type = "text/template" id = "pizzaIngredients">
+      <h1>Hello, my name is <%= personX.name %></h1>
+      <h3>This is my recipe to make the best pizza in the world: </h3>
+      
+      <ul>
+        <% personX.ingredients.forEach(function(ingredient) { %>
+          <li><%= ingredient %></li>
+          <% }); %>
+      </ul>
+    </script>
+
+<!-- This was part of the first exercise, where backbone was not required. it would go in a script tag -->
+    <!-- var template = _.template(document.getElementById("pizzaIngredients").innerHTML);
+    document.write(template({person: {name: "Papa John", ingredients: ["Evading Taxes", "Not Giving Healthcare", "Peyton Manning"]}}));
+ -->
+
+<div id="pizzaList"></div>
+<!-- Make a event listener where if you click it will change or add to the list of items -->
+    <script>
+      var PizzaView = Backbone.View.extend({
+        // "el" grabs an element, it can be a id, class, or a tag
+        el: "#pizzaList",
+        //gets the template made from the previous script tag
+        template: _.template($('#pizzaIngredients').html()),
+        initialize: function() {
+          this.render();
+        },
+
+        events: {"click h1": "changeIngredients"},
+
+        changeIngredients: function() {
+
+          this.$el.html(this.template({personX:
+            {name: 'Hooters',
+             ingredients: ['Tight clothes', 'mediocre wings', 'awful customers']}
+          }));
+        },
+
+        render: function() {
+          this.$el.html(this.template({personX:
+            {name: 'Ron Burgendy',
+            ingredients: ['Reporting the News', 'Playing the Flute', 'Jogging']
+            }}
+          ));
+          return this;
+        }
+        });
+        new PizzaView();
+    </script>
+  </body>
+</html>
+

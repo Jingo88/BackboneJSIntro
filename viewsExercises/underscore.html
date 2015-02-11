@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title></title>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+  </head>
+  <body>
+    <script type = "text/template" id = "pizzaIngredients">
+      <h1>Hello, my name is <%= person.name %></h1>
+      <h3>This is my recipe to make the best pizza in the world: </h3>
+      
+      <ul>
+        <% person.ingredients.forEach(function(ingredient) { %>
+          <li><%= ingredient %></li>
+          <% }); %>
+      </ul>
+    </script>
+
+    <script>
+      var template = _.template(document.getElementById("pizzaIngredients").innerHTML);
+      document.write(template({person: {name: "Papa John", ingredients: ["Evading Taxes", "Not Giving Healthcare", "Peyton Manning"]}}));
+    </script>
+
+  </body>
+</html>
+
+
+
