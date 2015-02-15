@@ -44,7 +44,33 @@ console.log('completed: ' + myTodo.get('completed')); // completed: false
 ##### EL
 
 * el - the central property of a view
+* ALL views must have an el
+* el is a reference to a DOM element
+
+##### Creating elements in the View
+
+* you can use any of the following calls "tagName" / "id" / "className"
+
+```
+var groceries = Backbone.View.extend({
+	tagName: 'ul',
+	className: 'theBox',
+	id: 'wholeList'
+});
+
+var groceryList = new groceries();
+console.log(groceryList.el); // This will = <ul id='wholeList' class='theBox'></ul>
+```
+* The “el” property represents the markup portion of the view that will be rendered; to get the view to actually render to the page, you need to add it as a new element or append it to an existing element.
+
+##### Render
+
+* render() is an optional function
+* _.template is an underscore.js method that will grab the targeted template inside of a script file of the html.
+* .render() will use the template by passing it the toJSON() encoding of the attributes of the model's associated views
+* "this" is commonly used at the end of the render() method. By using "this" you make the views more versatile and regarding list items it will not populate in the html until the entire list is completed.
 * 
+
 
 
 
