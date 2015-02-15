@@ -1,5 +1,55 @@
 # Backbone
 
+### Models
+
+* Think ok Models as a constructor. We will call the models when we need to organize / store data. Data is stored in your controller.
+* Initialize() - this method is used whenever a new instance of the model is called. It is optional. (e.g. you can stick a console log in here to know when and if the model is being called correctly). The initialize function is also a convenient place to store change events(when there are changes to a model). 
+* Model.get() - this provides easy access to a model's attributes
+* Model.toJSON() - returns a copy of the Model's data attributes in JSON
+* Model.set() - sets a hash containing one or more attributes on the model. If these attributes alter the model you can use a "change" event on the Model as a whole or on individual attributes. .set() is considered best practice when changing models
+* Model.validate() - checks the attributes for a model before setting them. Validation occurs during a .save() or .set() method. The below validation example was taken from http://addyosmani.github.io/backbone.
+
+```
+var Todo = Backbone.Model.extend({
+  defaults: {
+    completed: false
+  },
+
+  validate: function(attributes){
+    if(attributes.title === undefined){
+        return "Remember to set a title for your todo.";
+    }
+  },
+
+  initialize: function(){
+    console.log('This model has been initialized.');
+    this.on("invalid", function(model, error){
+        console.log(error);
+    });
+  }
+});
+
+var myTodo = new Todo();
+myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
+console.log('completed: ' + myTodo.get('completed')); // completed: false
+```
+
+
+### Views
+
+* Views present the logic for the presentation of the models data to the user. 
+* Backbone is hardcoded with underscore.js and jQuery
+* A views render method can be bound to a change event in a model
+
+##### EL
+
+* el - the central property of a view
+* 
+
+
+
+### Backbone unorganized class notes Below
+
 Backbone.Model.extend(); means to inherit things from the Backbone Model
 
 ``` 
